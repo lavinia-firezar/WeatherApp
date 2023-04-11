@@ -1,8 +1,8 @@
 
 After downloading or cloning the project, you can run the following commands:
 
-npm install
-npm start
+• npm install
+• npm start
 
 I used the API from Open Weather Map.
 The app is deployed at following link:  https://weather-app-react-forecast.netlify.app/
