@@ -1,0 +1,49 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout main {
+  flex-grow: 1;
+  text-align: center;
+}
+.background1,
+.background2 {
+  background-image: url("http://st.depositphotos.com/1689803/1375/i/450/depositphotos_13754660-Colorful-of-sunset-sky.jpg");
+  height: 20vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.background2 {
+  background-position: bottom;
+}
+
+.li {
+  font-size: 30px;
+  color: rgb(35, 25, 25);
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  padding: 10px;
+}
+
+.li:hover {
+  color: rgb(164, 212, 230);
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .li {
+    font-size: 18px;
+  }
+
+  footer {
+    background-position: bottom;
+  }
+}

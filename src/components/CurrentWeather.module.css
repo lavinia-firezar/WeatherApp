@@ -1,0 +1,101 @@
+.background {
+  height: 100vh;
+  width: 80vw;
+  background-image: url("http://st.depositphotos.com/1000123/1701/i/450/depositphotos_17018933-Abstract-sea-and-ocean-backgrounds-for-your-design.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  margin-top: 10px;
+}
+
+#searchButton,
+.locationSearch {
+  background-color: rgb(164, 212, 230);
+  padding: 5px;
+  border: 1px solid rgb(164, 212, 230);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+#searchButton {
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#searchButton:hover,
+.locationSearch:hover {
+  background-color: rgb(26, 108, 136);
+  border: 1px solid rgb(26, 108, 136);
+}
+
+.currentWeather {
+  margin-top: 20px;
+  display: flex;
+}
+
+.image {
+  height: 200px;
+}
+
+.grade {
+  font-size: 35px;
+  font-family: "Playfair Display", serif;
+}
+
+#favoriteButton {
+  height: 40px;
+  padding: 5px;
+  border: 1px solid rgb(26, 108, 136);
+  background-color: rgb(26, 108, 136);
+}
+
+#favoriteButton:hover {
+  border: 1px solid rgb(101, 129, 138);
+  background-color: rgb(101, 129, 138);
+}
+
+.forecastBtn {
+  background-color: rgb(26, 108, 136);
+  border: 1px solid rgb(26, 108, 136);
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  padding: 5px;
+}
+
+.forecastBtn:hover {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .background {
+    width: 100%;
+  }
+
+  h5 {
+    font-size: 15px;
+  }
+
+  .grade {
+    font-size: 25px;
+  }
+
+  .content {
+    margin-top: 60px;
+  }
+  #searchButton,
+  .locationSearch {
+    height: 35px;
+  }
+  .image {
+    height: 100px;
+  }
+}

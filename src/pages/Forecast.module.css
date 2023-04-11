@@ -1,0 +1,38 @@
+.background {
+  background-image: url("http://st.depositphotos.com/1689803/1375/i/450/depositphotos_13754660-Colorful-of-sunset-sky.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+h2 {
+  margin-top: 10px;
+}
+
+#searchButton,
+.locationSearch {
+  background-color: rgb(164, 212, 230);
+  padding: 5px;
+  border: 1px solid rgb(164, 212, 230);
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#searchButton {
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#searchButton:hover,
+.locationSearch:hover {
+  background-color: rgb(26, 108, 136);
+  border: 1px solid rgb(26, 108, 136);
+}
+
+@media (max-width: 768px) {
+  #searchButton,
+  .locationSearch {
+    height: 35px;
+  }
+}

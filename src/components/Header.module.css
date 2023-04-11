@@ -1,0 +1,74 @@
+.leftSide {
+  background-color: rgb(26, 108, 136);
+  width: 20vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.li {
+  color: rgb(35, 25, 25);
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  text-decoration: none;
+}
+
+.li:hover {
+  color: rgb(164, 212, 230);
+}
+
+@media (max-width: 768px) {
+  .leftSide {
+    background-color: rgb(26, 108, 136);
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  h2 {
+    font-size: 20px;
+    padding-top: 10px;
+  }
+
+  .li {
+    font-size: 15px;
+  }
+
+  .dropdownMenu {
+    display: none;
+  }
+
+  .menuIcon {
+    display: block;
+  }
+
+  .displayMobileMenu {
+    display: block;
+    width: 100%;
+
+    position: absolute;
+    z-index: 2;
+    top: 30px;
+    left: 0;
+    background-color: rgb(26, 108, 136);
+  }
+}
