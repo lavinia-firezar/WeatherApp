@@ -17,7 +17,7 @@ export function getCurrentWeather(apiResponse) {
 }
 
 export function getForecast(apiResponse) {
-  if (!apiResponse) {
+  if (!apiResponse || !apiResponse.list) {
     return [];
   }
 
@@ -83,4 +83,30 @@ export function getHour(utc) {
     minutes = "0" + minutes;
   }
   return `${hour}:${minutes}`;
+}
+
+export function getDate(utc) {
+  const date = new Date(utc * 1000);
+  let dayMonth = date.getDate();
+  if (dayMonth < 10) {
+    dayMonth = "0" + dayMonth;
+  }
+  const dayIndex = date.getMonth();
+  const monthList = [
+    "Ianuarie",
+    "Februarie",
+    "Martie",
+    "Aprilie",
+    "Mai",
+    "Iunie",
+    "Iulie",
+    "August",
+    "Septembrie",
+    "Octombrie",
+    "Noiembrie",
+    "Decembrie",
+  ];
+  const month = monthList.find((element) => element === monthList[dayIndex]);
+
+  return `${dayMonth}  ${month}`;
 }
