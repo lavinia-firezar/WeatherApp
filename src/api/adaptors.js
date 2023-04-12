@@ -1,5 +1,5 @@
 export function getCurrentWeather(apiResponse) {
-  if (!apiResponse) {
+  if (!apiResponse || !apiResponse.name) {
     return {};
   }
 
