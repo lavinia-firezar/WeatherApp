@@ -1,7 +1,7 @@
-.background {
+.rainy,
+.sunny {
   height: 100vh;
   width: 80vw;
-  background-image: url("http://st.depositphotos.com/1000123/1701/i/450/depositphotos_17018933-Abstract-sea-and-ocean-backgrounds-for-your-design.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -12,6 +12,14 @@
 
 .content {
   margin-top: 10px;
+}
+
+.rainy {
+  background-image: url("http://st.depositphotos.com/1000123/1701/i/450/depositphotos_17018933-Abstract-sea-and-ocean-backgrounds-for-your-design.jpg");
+}
+
+.sunny {
+  background-image: url("http://static9.depositphotos.com/1593759/1168/i/450/depositphotos_11687543-The-sun-above-the-horizon.jpg");
 }
 
 #searchButton,
@@ -48,14 +56,21 @@
   font-family: "Playfair Display", serif;
 }
 
-#favoriteButton {
+#favoriteButton,
+.theme {
   height: 40px;
   padding: 5px;
   border: 1px solid rgb(26, 108, 136);
   background-color: rgb(26, 108, 136);
 }
 
-#favoriteButton:hover {
+.theme {
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+#favoriteButton:hover,
+.theme:hover {
   border: 1px solid rgb(101, 129, 138);
   background-color: rgb(101, 129, 138);
 }
@@ -83,7 +98,8 @@
 }
 
 @media (max-width: 768px) {
-  .background {
+  .rainy,
+  .sunny {
     width: 100%;
   }
 

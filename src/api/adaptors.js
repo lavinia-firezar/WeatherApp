@@ -12,6 +12,7 @@ export function getCurrentWeather(apiResponse) {
     description: apiResponse.weather[0].description,
     icon: apiResponse.weather[0].icon,
     wind: apiResponse.wind.speed,
+    theme: apiResponse.weather[0].main,
   };
   return detailsWeather;
 }
