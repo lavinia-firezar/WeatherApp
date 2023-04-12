@@ -38,10 +38,10 @@ function Favorite(props) {
                             className={styles.card}
                           />
                           <Card.Body className={styles.card}>
+                            <Card.Title>{element.temp} °C</Card.Title>
                             <Card.Title>{element.name}</Card.Title>
                             <Card.Title>{element.dt}</Card.Title>
                             <Card.Title>{element.description}</Card.Title>
-                            <Card.Title>{element.temp} °C</Card.Title>
                           </Card.Body>
                         </section>
                       </Col>

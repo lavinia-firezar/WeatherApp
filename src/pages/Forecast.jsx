@@ -15,7 +15,7 @@ function Forecast() {
   const cityForecastEndpoint = getForecastEndpoint(updatedCity);
   const cityForecast = useFetchHook(cityForecastEndpoint);
   const forecastWeather = getForecast(cityForecast);
-  console.log(forecastWeather);
+  console.log(cityForecast);
   const forecastDetails = forecastWeather.map((forecast) => {
     return [forecast, forecast.dt];
   });
@@ -26,11 +26,16 @@ function Forecast() {
     setLocation(event.target.value);
   }
 
-  function handleOnClick() {
-    if (inputRef.current) {
-      inputRef.current.value = "";
+  function handleOnClick(event) {
+    if (!updatedCity) {
+      setLocation("Oradea");
+    } else {
+      event.preventDefault();
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
+      setUpdatedCity(city);
     }
-    setUpdatedCity(city);
   }
 
   return (
@@ -49,8 +54,14 @@ function Forecast() {
               <span className="material-icons text-dark">search</span>
             </Button>
           </div>
-          <h2>Prognoza meteo pe 5 zile în oraşul {updatedCity}</h2>
-          <DailyForecastList forecastDetails={forecastDetails} />
+          {cityForecast && cityForecast.cod === "200" ? (
+            <div>
+              <h2>Prognoza meteo pe 5 zile în oraşul {updatedCity}</h2>
+              <DailyForecastList forecastDetails={forecastDetails} />
+            </div>
+          ) : (
+            <h2>Oraşul nu există</h2>
+          )}
         </Container>
       </section>
     </Layout>

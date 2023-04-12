@@ -7,6 +7,7 @@ import { getCurrentWeatherEndpoint } from "../api/endpoints";
 import useFetchHook from "../utils/useFetchHook";
 import {
   getCurrentWeather,
+  getDate,
   getDayOfWeek,
   getHour,
   getWeatherIcon,
@@ -34,8 +35,10 @@ function CurrentWeather() {
   const windKmPerHour = Math.round(windToKmPerHour(wind));
   const temperature = Math.round(temp);
   const temperatureFeels = Math.round(tempFeels);
-  const date = getDayOfWeek(dt);
+  const day = getDayOfWeek(dt);
   const hour = getHour(dt);
+  const dateYear = getDate(dt);
+  // console.log(dateYear);
 
   function handleChangeInput(event) {
     event.preventDefault();
@@ -43,7 +46,7 @@ function CurrentWeather() {
   }
 
   function handleOnClick(event) {
-    if (updatedCity.cod === "404") {
+    if (!updatedCity) {
       setLocation("Oradea");
     } else {
       event.preventDefault();
@@ -69,7 +72,6 @@ function CurrentWeather() {
       {stateAlert && (
         <Alert className={styles.alert}>Ai adaugat oraşul la favorite</Alert>
       )}
-
       <div className={styles.content}>
         <section>
           <Container>
@@ -85,45 +87,60 @@ function CurrentWeather() {
             </Button>
           </Container>
         </section>
-        <section>
-          <Container className={styles.currentWeather}>
-            <img src={weatherIcon} className={styles.image} alt="pozaIcon" />
-            <div>
-              <span className={styles.grade}>{temperature} °C</span>
-              <h2>{name}</h2>
-            </div>
-            <Button
-              id={styles.favoriteButton}
-              onClick={() => {
-                handleAddFavorite({
-                  id: id,
-                  name: name,
-                  dt: date,
-                  hour: hour,
-                  icon: weatherIcon,
-                  description: description,
-                  wind: windKmPerHour,
-                  temp: temperature,
-                });
-              }}
-            >
-              <span className="material-icons text-light">favorite</span>
-            </Button>
-          </Container>
-        </section>
-        <section>
-          <Container>
-            <h5>
-              {date}, {hour}
-            </h5>
-            <h5>{description}</h5>
-            <h5>Temperatura resimţită {temperatureFeels} °C</h5>
-            <h5>Vânt {windKmPerHour} km/h</h5>
-          </Container>
-          <Link to="/forecast" variant="light" className={styles.forecastBtn}>
-            Prognoza pe 5 zile
-          </Link>
-        </section>
+        {cityWeather && cityWeather.cod === 200 ? (
+          <div>
+            <section>
+              <Container className={styles.currentWeather}>
+                <img
+                  src={weatherIcon}
+                  className={styles.image}
+                  alt="pozaIcon"
+                />
+                <div>
+                  <span className={styles.grade}>{temperature} °C</span>
+                  <h2>{name}</h2>
+                </div>
+                <Button
+                  id={styles.favoriteButton}
+                  onClick={() => {
+                    handleAddFavorite({
+                      id: id,
+                      name: name,
+                      dt: dateYear,
+                      hour: hour,
+                      icon: weatherIcon,
+                      description: description,
+                      wind: windKmPerHour,
+                      temp: temperature,
+                    });
+                  }}
+                >
+                  <span className="material-icons text-light">favorite</span>
+                </Button>
+              </Container>
+            </section>
+            <section>
+              <Container>
+                <h5>{dateYear}</h5>
+                <h5>
+                  {day}, {hour}
+                </h5>
+                <h5>{description}</h5>
+                <h5>Temperatura resimţită {temperatureFeels} °C</h5>
+                <h5>Vânt {windKmPerHour} km/h</h5>
+              </Container>
+              <Link
+                to="/forecast"
+                variant="light"
+                className={styles.forecastBtn}
+              >
+                Prognoza pe 5 zile
+              </Link>
+            </section>
+          </div>
+        ) : (
+          <h2 className="mt-4">Oraşul nu există</h2>
+        )}
       </div>
     </div>
   );

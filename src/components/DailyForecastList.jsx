@@ -1,18 +1,23 @@
 import { Col, Container, Row } from "react-bootstrap";
 import DailyForecast from "./DailyForecast";
 
-function DailyForecastList({ forecastDetails }) {
+function DailyForecastList(props) {
+  const { forecastDetails } = props;
   return (
     <Container className="mt-3">
       <Row>
-        {forecastDetails.map((forecast) => (
-          <Col
-            className={`mt-4 d-flex flex-column justify-content-between align-items-center`}
-            key={forecast}
-          >
-            <DailyForecast forecast={forecast} />
-          </Col>
-        ))}
+        {forecastDetails.map((forecast) => {
+          return (
+            <Col
+              className={`d-flex flex-column justify-content-between align-items-center`}
+              key={forecast}
+            >
+              <section>
+                <DailyForecast forecast={forecast} />
+              </section>
+            </Col>
+          );
+        })}
       </Row>
     </Container>
   );
