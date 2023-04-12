@@ -75,6 +75,13 @@
   color: black;
 }
 
+.alert {
+  background-color: rgb(26, 108, 136);
+  border: 1px solid rgb(26, 108, 136);
+  color: white;
+  margin-top: 5px;
+}
+
 @media (max-width: 768px) {
   .background {
     width: 100%;
@@ -97,5 +104,9 @@
   }
   .image {
     height: 100px;
+  }
+
+  .alert {
+    font-size: 14px;
   }
 }

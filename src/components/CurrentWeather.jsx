@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap";
+import { Alert, Button, Container } from "react-bootstrap";
 import styles from "./CurrentWeather.module.css";
 import { useContext, useRef, useState } from "react";
 import { FavoriteContext } from "../store/AddToFavorite/context";
@@ -18,11 +18,13 @@ import { Link } from "react-router-dom";
 function CurrentWeather() {
   const [city, setLocation] = useState("Oradea");
   const [updatedCity, setUpdatedCity] = useState(city);
+  const [stateAlert, setStateAlert] = useState(false);
   const { favDispatch } = useContext(FavoriteContext);
   const inputRef = useRef(null);
 
   const cityWeatherEndpoint = getCurrentWeatherEndpoint(updatedCity);
   const cityWeather = useFetchHook(cityWeatherEndpoint);
+  console.log(cityWeather);
   const currentWeather = getCurrentWeather(cityWeather);
   // console.log(currentWeather);
 
@@ -41,20 +43,33 @@ function CurrentWeather() {
   }
 
   function handleOnClick(event) {
-    event.preventDefault();
-    if (inputRef.current) {
-      inputRef.current.value = "";
+    if (updatedCity.cod === "404") {
+      setLocation("Oradea");
+    } else {
+      event.preventDefault();
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
+      setUpdatedCity(city);
     }
-    setUpdatedCity(city);
   }
 
   function handleAddFavorite(city) {
     const actionResult = addToFavorite(city);
     favDispatch(actionResult);
+
+    setStateAlert(true);
+    setTimeout(() => {
+      setStateAlert(false);
+    }, 2500);
   }
 
   return (
     <div className={styles.background}>
+      {stateAlert && (
+        <Alert className={styles.alert}>Ai adaugat oraşul la favorite</Alert>
+      )}
+
       <div className={styles.content}>
         <section>
           <Container>
