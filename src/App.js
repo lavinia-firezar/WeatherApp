@@ -8,6 +8,8 @@ import {
   favoriteReducer,
   initialStateFav,
 } from "./store/AddToFavorite/reducer";
+import { ThemeContext } from "./store/ChangeTheme/context";
+import { initialStateTheme, themeReducer } from "./store/ChangeTheme/reducer";
 
 function App() {
   const [favState, favDispatch] = useReducer(favoriteReducer, initialStateFav);
@@ -16,15 +18,26 @@ function App() {
     favDispatch,
   };
 
+  const [themeState, themeDispatch] = useReducer(
+    themeReducer,
+    initialStateTheme
+  );
+  const themeContextValue = {
+    themeState,
+    themeDispatch,
+  };
+
   return (
     <div className="App">
-      <FavoriteContext.Provider value={favoriteContextValue}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/favorite" element={<Favorite />} />
-          <Route path="/forecast" element={<Forecast />} />
-        </Routes>
-      </FavoriteContext.Provider>
+      <ThemeContext.Provider value={themeContextValue}>
+        <FavoriteContext.Provider value={favoriteContextValue}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/favorite" element={<Favorite />} />
+            <Route path="/forecast" element={<Forecast />} />
+          </Routes>
+        </FavoriteContext.Provider>
+      </ThemeContext.Provider>
     </div>
   );
 }
