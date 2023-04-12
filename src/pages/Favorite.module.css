@@ -24,8 +24,6 @@
 .btn {
   background-color: rgba(65, 196, 198, 0.5);
   padding: 10px;
+  margin-bottom: 10px;
   font-family: "Playfair Display", serif;
-}
-
-@media (max-width: 768px) {
 }

@@ -46,4 +46,13 @@
   footer {
     background-position: bottom;
   }
+
+  .background2 {
+    height: 140px;
+    z-index: -1;
+  }
+
+  .background1 {
+    height: 60px;
+  }
 }
