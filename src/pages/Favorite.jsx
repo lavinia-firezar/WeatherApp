@@ -28,9 +28,14 @@ function Favorite(props) {
                 ) : (
                   favState.citiesFav.map((element) => {
                     return (
-                      <Col xs={12} md={6} lg={3} className="mb-4">
+                      <Col
+                        xs={12}
+                        md={6}
+                        lg={3}
+                        className="mb-4"
+                        key={element.id}
+                      >
                         <section
-                          key={element.id}
                           className={`mt-4 d-flex flex-column justify-content-between align-items-center`}
                         >
                           <Card.Img
