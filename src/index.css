@@ -1,11 +1,19 @@
+:root {
+  --bg-dark: rgb(26, 108, 136);
+  --bg-light: rgba(164, 212, 230, 0.4);
+  --text-secondary: rgb(101, 129, 138);
+  --text-light: rgb(255, 255, 255);
+  --text-dark: rgb(0, 0, 0);
+  --font-small: 1.125rem;
+  --margin-small: 0.313rem;
+}
+
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Playfair Display", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

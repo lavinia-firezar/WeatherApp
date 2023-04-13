@@ -23,14 +23,14 @@
 
 .li {
   font-size: 30px;
-  color: rgb(35, 25, 25);
+  color: var(--text-dark);
   text-decoration: none;
   font-family: "Playfair Display", serif;
-  padding: 10px;
+  padding: calc(2 * var(--margin-small));
 }
 
 .li:hover {
-  color: rgb(164, 212, 230);
+  color: var(--bg-light);
 }
 
 .Navbar {
@@ -40,7 +40,7 @@
 
 @media (max-width: 768px) {
   .li {
-    font-size: 18px;
+    font-size: var(--font-small);
   }
 
   footer {
