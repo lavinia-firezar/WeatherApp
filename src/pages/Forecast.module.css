@@ -12,9 +12,9 @@ h2 {
 
 #searchButton,
 .locationSearch {
-  background-color: rgb(164, 212, 230);
+  background-color: var(--bg-light);
   padding: var(--margin-small);
-  border: 1px solid rgb(164, 212, 230);
+  border: 1px solid var(--bg-light);
   border-radius: var(--margin-small);
   margin-right: var(--margin-small);
 }
@@ -30,8 +30,8 @@ h2 {
 
 #searchButton:hover,
 .locationSearch:hover {
-  background-color: rgb(26, 108, 136);
-  border: 1px solid rgb(26, 108, 136);
+  background-color: var(--bg-dark);
+  border: 1px solid var(--bg-dark);
 }
 
 @media (max-width: 768px) {
